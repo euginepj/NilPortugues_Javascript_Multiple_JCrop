@@ -15,42 +15,43 @@ All you need to do to configure this JCrop modification is:
 
 1.  Include **[JQuery](js/jquery.min.js)**, the original JCrop **[Javascript](js/jquery.Jcrop.js)** and **[CSS](css/jquery.Jcrop.css)** and the current plugin files.
 <pre>
-	&lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
-
-    	&lt;!-- Original JCrop Plugin --&gt;
-	&lt;script src=&quot;js/jquery.Jcrop.js&quot;&gt;&lt;/script&gt;
-	&lt;link href=&quot;css/jquery.Jcrop.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
-
-    	&lt;!-- JCrop Multiple Plugin --&gt;
-	&lt;script src=&quot;js/jquery.Jcrop.multiple.js&quot;&gt;&lt;/script&gt;
-	&lt;link href=&quot;css/jquery.Jcrop.custom.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot;/&gt;
+&lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Original JCrop Plugin --&gt;
+&lt;script src=&quot;js/jquery.Jcrop.js&quot;&gt;&lt;/script&gt;
+&lt;link href=&quot;css/jquery.Jcrop.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;!-- JCrop Multiple Plugin --&gt;
+&lt;script src=&quot;js/jquery.Jcrop.multiple.js&quot;&gt;&lt;/script&gt;
+&lt;link href=&quot;css/jquery.Jcrop.custom.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot;/&gt;
 </pre>
 2.  Edit the CSS in **[jquery.Jcrop.custom.css](css/jquery.Jcrop.custom.css)** to fit your needs.
 3.  Edit the configuration array in **[jquery.Jcrop.multiple.js](js/jquery.Jcrop.multiple.js)** to match any changes in the CSS.
 4.  Create a JCrop Item using HTML and the HTML5 data attributes.
-<pre>
-&lt;form method=&quot;post&quot;&gt;
-	&lt;!-- JCROP ITEM # 1--&gt;
-	&lt;div class=&quot;jcrop-item&quot;&gt;
-	&lt;h4&gt;PREVIEW PHOTO&lt;/h4&gt;
+```
+<form method="post">
+	<!-- JCROP ITEM # 1-->
+	<div class="jcrop-item">
+		<div>		
+			<div class="jcrop-preview-pane" class="jcrop-transparent-bg">
+				<div class="jcrop-preview-container">
+					<img class="jcrop-preview" data-height="116" data-width="116" />
+				</div>				
+			</div>	
+			<img class="jcrop-box" src="demo.png" data-height="300" data-width="300" data-x='7' data-y='0' data-x2='225' data-y2='225' />
+		</div>	
+		<input type="hidden" class="jcrop-src" name="jcrop-src[]" />
+		<input type="hidden" class="jcrop-x" name="jcrop-x[]" />
+		<input type="hidden" class="jcrop-y" name="jcrop-y[]" />
+		<input type="hidden" class="jcrop-x2" name="jcrop-x2[]" />
+		<input type="hidden" class="jcrop-y2" name="jcrop-y2[]" />
+	</div>	
 
-    		&lt;!-- This is the image we're attaching Jcrop to --&gt;
-		&lt;div&gt;			&lt;div class=&quot;jcrop-preview-pane&quot; class=&quot;jcrop-transparent-bg&quot;&gt;
-				&lt;div class=&quot;jcrop-preview-container&quot;&gt;
-					&lt;img class=&quot;jcrop-preview&quot; data-height=&quot;116&quot; data-width=&quot;116&quot; /&gt;
-				&lt;/div&gt;			&lt;/div&gt;			&lt;img class=&quot;jcrop-box&quot; src=&quot;demo.png&quot;
-			     data-height=&quot;300&quot; data-width=&quot;300&quot;
-			     data-x='7' data-y='0' data-x2='225' data-y2='225'
-			/&gt;
-		&lt;/div&gt;		&lt;input type=&quot;hidden&quot; class=&quot;jcrop-src&quot; name=&quot;jcrop-src[]&quot; /&gt;
-		&lt;input type=&quot;hidden&quot; class=&quot;jcrop-x&quot; name=&quot;jcrop-x[]&quot; /&gt;
-		&lt;input type=&quot;hidden&quot; class=&quot;jcrop-y&quot; name=&quot;jcrop-y[]&quot; /&gt;
-		&lt;input type=&quot;hidden&quot; class=&quot;jcrop-x2&quot; name=&quot;jcrop-x2[]&quot; /&gt;
-		&lt;input type=&quot;hidden&quot; class=&quot;jcrop-y2&quot; name=&quot;jcrop-y2[]&quot; /&gt;
-	&lt;/div&gt;
-	&lt;div style=&quot;clear:left&quot;&gt;&lt;/div&gt;
-	&lt;input type=&quot;submit&quot; value=&quot;Crop Images&quot;/&gt;&lt;/form&gt;
-</pre>
+	<!-- JCROP ITEM # 2-->
+	<!-- ... -->
+	
+	<div style="clear:left"></div>
+	<input type="submit" value="Crop Images"/>
+</form>	
+```
 5.  Hit the submit button and process the form's data server-side!
 
 
