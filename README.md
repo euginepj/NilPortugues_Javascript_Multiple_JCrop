@@ -1,5 +1,7 @@
 # Multiple JCrop with Real-time Preview
 
+Demo: http://nilportugues.com/opensource/jquery-multiple-jcrop/
+
 ### 1. Description
 
 * Multiple JCrop plugin allows you to edit multiple images using JCrop at the same time. 
