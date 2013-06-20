@@ -14,15 +14,14 @@
 All you need to do to configure this JCrop modification is:
 
 1.  Include **[JQuery](js/jquery.min.js)**, the original JCrop **[Javascript](js/jquery.Jcrop.js)** and **[CSS](css/jquery.Jcrop.css)** and the current plugin files.
-<pre>
-&lt;script src=&quot;js/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;!-- Original JCrop Plugin --&gt;
-&lt;script src=&quot;js/jquery.Jcrop.js&quot;&gt;&lt;/script&gt;
-&lt;link href=&quot;css/jquery.Jcrop.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot; /&gt;
-&lt;!-- JCrop Multiple Plugin --&gt;
-&lt;script src=&quot;js/jquery.Jcrop.multiple.js&quot;&gt;&lt;/script&gt;
-&lt;link href=&quot;css/jquery.Jcrop.custom.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot;/&gt;
-</pre>
+
+```
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.Jcrop.js"></script>
+<script src="js/jquery.Jcrop.multiple.js"></script>
+<link href="css/jquery.Jcrop.css" type="text/css" rel="stylesheet" />
+<link href="css/jquery.Jcrop.custom.css" type="text/css" rel="stylesheet"/>
+```
 2.  Edit the CSS in **[jquery.Jcrop.custom.css](css/jquery.Jcrop.custom.css)** to fit your needs.
 3.  Edit the configuration array in **[jquery.Jcrop.multiple.js](js/jquery.Jcrop.multiple.js)** to match any changes in the CSS.
 4.  Create a JCrop Item using HTML and the HTML5 data attributes.
