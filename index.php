@@ -1,26 +1,45 @@
 <?php
-
+/**
+ * This is part of https://github.com/nilopc/NilPortugues_Javascript_Multiple_JCrop
+ *
+ * (c) 2013 Nil Portugués Calderó <contact@nilportugues.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+	include('image.class.php');
+	$image = new imageClass();
+
+	file_put_contents('image1',file_get_contents($_POST['jcrop-src'][0]));
+	file_put_contents('image2',file_get_contents($_POST['jcrop-src'][1]));
+
+	$_POST['jcrop-src'][0] = 'image1';
+	$_POST['jcrop-src'][1] = 'image2';
+ 
+	// IMAGE 1
+	$filename = $_POST['jcrop-src'][0];   
+	$src1 = $image->setImage($filename)
+		      ->crop($_POST['jcrop-x'][0],$_POST['jcrop-y'][0],$_POST['jcrop-x2'][0],$_POST['jcrop-y2'][0])
+		      ->resize(116,116,'exact')
+		      ->save('./generated/','demo.exact-resize_1',$image->getFileType());
+
+	//IMAGE 2
+	$filename = $_POST['jcrop-src'][1];   
+	$src2 = $image->setImage($filename)
+              ->crop($_POST['jcrop-x'][1],$_POST['jcrop-y'][1],$_POST['jcrop-x2'][1],$_POST['jcrop-y2'][1])
+	      ->resize(512,288,'exact')
+              ->save('./generated/','demo.exact-resize_2',$image->getFileType());
+
+	//HTML OUTPUT
+	echo '<h2>Image Manipulation</h2>';
+	echo '<img style="border:1px solid #ccc" src="'.$src1.'"> <br>';
+	echo '<img style="border:1px solid #ccc" src="'.$src2.'"> ';
+
 	echo '<pre>';
 	print_r($_POST);
 	echo '</pre>';
-	exit;
-
-	//This if how an image would be cropped... it's up to you how to do it.
-	$targ_w = $targ_h = 116;
-	$jpeg_quality = 100;
-
-	$src = $_POST['jcrop-src'];
-	$img_r = imagecreatefromjpeg($src);
-	$dst_r = ImageCreateTrueColor( $targ_w, $targ_h );
-
-	imagecopyresampled($dst_r,$img_r,0,0,$_POST['jcrop-x'],$_POST['jcrop-y'],
-	$targ_w,$targ_h,$_POST['jcrop-x2'],$_POST['jcrop-y2']);
-
-	header('Content-type: image/jpeg');
-	imagejpeg($dst_r,null,$jpeg_quality);
-
 	exit;
 }
 
