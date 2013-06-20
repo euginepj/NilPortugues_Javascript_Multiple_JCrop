@@ -102,25 +102,25 @@ HTML5 data attributes play an important role in the configuration of this plugin
 	<tr>
 		<td>data-x</td>
 		<td>Optional</td>
-		<td>X Axis start value based on the selected image area. 
+		<td>X Axis start value based on the selected image area. <br>
     Used to set or reload a stored area selection.</td>
 	</tr>
 	<tr>
 		<td>data-y</td>
 		<td>Optional</td>
-		<td>Y Axis start value based on the selected image area. 
+		<td>Y Axis start value based on the selected image area. <br>
     Used to set or reload a stored area selection.</td>
 	</tr>
 	<tr>
 		<td>data-x2</td>
 		<td>Optional</td>
-		<td>Value containing the width of the selected image area. 
+		<td>Value containing the width of the selected image area. <br>
     Used to set or reload a stored area selection.</td>
 	</tr>
 	<tr>
 		<td>data-y2</td>
 		<td>Optional</td>
-		<td>Value containing the height of the selected image area.
+		<td>Value containing the height of the selected image area.<br>
     Used to set or reload a stored area selection.</td>
 	</tr>
 </tbody>
