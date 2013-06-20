@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	<link href="css/jquery.Jcrop.custom.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-
+<a href="https://github.com/nilopc/NilPortugues_Javascript_Multiple_JCrop"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 <h1>Multiple JCrop with Real-time Preview</h1>
 <h2>I. Configuration</h2>
 <p>
