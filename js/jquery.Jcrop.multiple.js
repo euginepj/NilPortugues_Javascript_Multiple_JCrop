@@ -136,49 +136,50 @@ function JCropSetUp(opt)
 		);
 
 		//This will let us change on the fly the image to resize.
-		$(options['formNewImageSourceField']).on('change',function()
+		$(options['formNewImageSourceField']).on('change',function(event)
 		{	
-			//Set new image 
-			currentObj.find(options['image'])
-				  .attr('src',$(this).val());
-
-			currentObj.find(options['imagePreview'])
-				  .attr('src',$(this).val());
-
-			currentObj.find(options['formSourceField'])
-				  .attr('value',$(this).val());
-
-			// Set the new size.		
-			currentObj.find(options['image']).css('height','');
-			currentObj.find(options['image']).css('width','');
-
-			newh = currentObj.find(options['image']).height();
-			neww = currentObj.find(options['image']).width();
-
-			$pimg.css(
-			{
-				  width: neww + 'px',
-				  height: newh + 'px',
-				  marginLeft: '0',
-				  marginTop: '0'
-			});
-
-			//Load the new image
-			jcrop_api.setImage($(this).val(),function()
-			{
-				// Use the API to get the real image size
-				bounds = this.getBounds();
-				boundx = bounds[0];
-				boundy = bounds[1];
-
-				// Store the API in the jcrop_api variable
-				jcrop_api = this;
-
-				// Move the preview into the jcrop container for css positioning
-				$preview.appendTo(jcrop_api.ui.holder);
-			});			
-			jcrop_api.focus();	
-			return false;
+			if($(this).val() != '')
+			{			
+				//Set new image 
+				currentObj.find(options['image'])
+					  .attr('src',$(this).val());
+	
+				currentObj.find(options['imagePreview'])
+					  .attr('src',$(this).val());
+	
+				currentObj.find(options['formSourceField'])
+					  .attr('value',$(this).val());
+	
+				// Set the new size.		
+				currentObj.find(options['image']).css('height','').css('width','');
+	
+				newh = currentObj.find(options['image']).height();
+				neww = currentObj.find(options['image']).width();
+	
+				$pimg.css(
+				{
+					  width: neww + 'px',
+					  height: newh + 'px',
+					  marginLeft: '0',
+					  marginTop: '0'
+				});
+	
+				//Load the new image
+				jcrop_api.setImage($(this).val(),function()
+				{
+					// Use the API to get the real image size
+					bounds = this.getBounds();
+					boundx = bounds[0];
+					boundy = bounds[1];
+	
+					// Store the API in the jcrop_api variable
+					jcrop_api = this;
+	
+					// Move the preview into the jcrop container for css positioning
+					$preview.appendTo(jcrop_api.ui.holder);
+				});			
+			}
+			event.preventDefault();
 		});
 
 		/**
