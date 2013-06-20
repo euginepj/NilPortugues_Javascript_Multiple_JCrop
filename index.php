@@ -23,14 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	$src1 = $image->setImage($filename)
 		      ->crop($_POST['jcrop-x'][0],$_POST['jcrop-y'][0],$_POST['jcrop-x2'][0],$_POST['jcrop-y2'][0])
 		      ->resize(116,116,'exact')
-		      ->save('./generated/','demo.exact-resize_1',$image->getFileType());
+		      ->save('./generated','demo.exact-resize_1',$image->getFileType());
 
 	//IMAGE 2
 	$filename = $_POST['jcrop-src'][1];   
 	$src2 = $image->setImage($filename)
               ->crop($_POST['jcrop-x'][1],$_POST['jcrop-y'][1],$_POST['jcrop-x2'][1],$_POST['jcrop-y2'][1])
 	      ->resize(512,288,'exact')
-              ->save('./generated/','demo.exact-resize_2',$image->getFileType());
+              ->save('./generated','demo.exact-resize_2',$image->getFileType());
 
 	//HTML OUTPUT
 	echo '<h2>Image Manipulation</h2>';
