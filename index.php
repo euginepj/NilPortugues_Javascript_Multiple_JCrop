@@ -194,7 +194,7 @@ table th {background-color:#eee;text-align:left;}
 <form method="post"STYLE="PADDING:0 20px 10px 20px; border:1px solid #ddd;">
 
 	<h4>LOAD IMAGE PATH</h4>
-	<input type="text" class="jcrop-image" style="width:600px">
+	<input type="text" class="jcrop-image kcfinder-open" data-kcfinder='http://path/to/kcfinder/browse.php?type=images' style="width:600px">
 	<p><i>This field should hold the source to the image. Could be hidden and combined with other scripts, such as <a href="http://kcfinder.sunhater.com/">KCFinder</a></i></p>
 	<hr>	
 
