@@ -144,10 +144,16 @@ function JCropSetUp(opt)
 		{	
 			url = currentObj.find(options['formSourceField']).attr('value');
 			
-			if($(options['formNewImageSourceField']).val() == '')
+			//KCFinder case
+			if( $(this).val() == '' && $(this).hasAttr(options['KCFinderURL']) )
             		{
-                		$(options['formNewImageSourceField']).val(url);
+                		$(this).val(url);
             		}
+			//"Normal" case
+			else
+			{
+				url = $(this).val();
+			}            
             
 			if(url != '')
 			{						
