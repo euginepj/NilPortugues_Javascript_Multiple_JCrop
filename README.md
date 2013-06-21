@@ -19,7 +19,6 @@ Demo: http://nilportugues.com/opensource/jquery-multiple-jcrop/
 All you need to do to configure this JCrop modification is:
 
 1.  Include **[JQuery](js/jquery.min.js)**, the original JCrop **[Javascript](js/jquery.Jcrop.js)** and **[CSS](css/jquery.Jcrop.css)** and the current plugin files.
-
 ```
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.Jcrop.js"></script>
