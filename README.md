@@ -1,4 +1,7 @@
 # Multiple JCrop with Real-time Preview
+Crop images in the front-end using JCrop and this JCrop Modification. With this modification, you'll be able to edit multiple images with JCrop, viewing the crop results in real-time.
+
+Once you're done cropping, use PHP to save the images into a file (PHP class and code provided).
 
 Demo: http://nilportugues.com/opensource/jquery-multiple-jcrop/
 
