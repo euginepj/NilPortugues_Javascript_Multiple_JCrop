@@ -145,7 +145,7 @@ function JCropSetUp(opt)
 			url = currentObj.find(options['formSourceField']).attr('value');
 			
 			//KCFinder case
-			if( $(this).val() == '' && $(this).hasAttr(options['KCFinderURL']) )
+			if( $(this).val() == '' && $(this).attr(options['KCFinderURL'])!== false )
             		{
                 		$(this).val(url);
             		}
