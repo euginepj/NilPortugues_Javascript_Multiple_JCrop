@@ -54,6 +54,10 @@ $(function()
 	options['dataAttrX2Field']		= 'data-x2';
 	options['dataAttrY2Field'] 		= 'data-y2';
 
+    	//KCFinder integration
+    	options['KCFinder'] 		        = '.kcfinder-open';
+    	options['KCFinderURL'] 		        = 'data-kcfinder';
+    
 	JCropSetUp(options);
 });
 
@@ -136,19 +140,26 @@ function JCropSetUp(opt)
 		);
 
 		//This will let us change on the fly the image to resize.
-		$(options['formNewImageSourceField']).on('change',function(event)
+		$(options['formNewImageSourceField']).on('change click',function(event)
 		{	
-			if($(this).val() != '')
+			url = currentObj.find(options['formSourceField']).attr('value');
+			
+			if($(options['formNewImageSourceField']).val() == '')
+            		{
+                		$(options['formNewImageSourceField']).val(url);
+            		}
+            
+			if(url != '')
 			{			
 				//Set new image 
 				currentObj.find(options['image'])
-					  .attr('src',$(this).val());
+					  .attr('src',url);
 	
 				currentObj.find(options['imagePreview'])
-					  .attr('src',$(this).val());
+					  .attr('src',url);
 	
 				currentObj.find(options['formSourceField'])
-					  .attr('value',$(this).val());
+					  .attr('value',url);
 	
 				// Set the new size.		
 				currentObj.find(options['image']).css('height','').css('width','');
@@ -165,7 +176,7 @@ function JCropSetUp(opt)
 				});
 	
 				//Load the new image
-				jcrop_api.setImage($(this).val(),function()
+				jcrop_api.setImage(url,function()
 				{
 					// Use the API to get the real image size
 					bounds = this.getBounds();
@@ -240,5 +251,26 @@ function JCropSetUp(opt)
 			currentObj.find(options['formCropY2Field']).val(Math.round(c.h));
 			updatePreview(c);
 		};
+		
+		
+	        //INTEGRATION WITH KCFINDER
+	        $(options['KCFinder']).on('click',function()
+	        {
+	            window.KCFinder =
+	            {
+	                callBack: function(url)
+	                {
+	                    $(options['formSourceField']).attr('value','http:'+url);
+	                    window.KCFinder = null;
+	                    $(options['formNewImageSourceField']).trigger('click');
+	                }
+	            };
+	            window.open
+	            (
+	                $(options['KCFinder']).attr(options['KCFinderURL']),
+	                'kcfinder_textbox',
+	                'status=0, toolbar=0, location=0, menubar=0, directories=0, resizable=1, scrollbars=0, width=800, height=600'
+	            );
+        })		
 	});
 }
