@@ -150,16 +150,17 @@ function JCropSetUp(opt)
             		}
             
 			if(url != '')
-			{			
+			{						
+		                //Reset the selected image areas
+		                currentObj.find(options['formCropXField']).val('');
+		                currentObj.find(options['formCropYField']).val('');
+		                currentObj.find(options['formCropX2Field']).val('');
+		                currentObj.find(options['formCropY2Field']).val('');
+                
 				//Set new image 
-				currentObj.find(options['image'])
-					  .attr('src',url);
-	
-				currentObj.find(options['imagePreview'])
-					  .attr('src',url);
-	
-				currentObj.find(options['formSourceField'])
-					  .attr('value',url);
+				currentObj.find(options['image']).attr('src',url);
+				currentObj.find(options['imagePreview']).attr('src',url);	
+				currentObj.find(options['formSourceField']).attr('value',url);
 	
 				// Set the new size.		
 				currentObj.find(options['image']).css('height','').css('width','');
