@@ -130,3 +130,17 @@ HTML5 data attributes play an important role in the configuration of this plugin
 	</tr>
 </tbody>
 </table>
+
+### 5. Integration with KCFinder
+
+To integrate JCrop with KCFinder, this plugin will load KCFinder using the textbox method (http://kcfinder.sunhater.com/demos/textbox).
+
+Everything has been configurated for you. To get it working you must:
+
+* Integrate KCFinder in your app (http://kcfinder.sunhater.com/docs/integrate).
+* Create a `input[type=text]` element with the class attribute being `jcrop-image kcfinder-open`.
+* In the very same text input element, add a `data-kcfinder` attribute pointing to the KCFinder location.
+
+```
+<input class="jcrop-image kcfinder-open" data-kcfinder='http://path/to/kcfinder/browse.php?type=images'>
+```
