@@ -9,6 +9,11 @@
  */
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+	/*
+	 * SAVING THE SELECTIONS TO SEPARATE FILES
+	 * (I'm aware of the naive code going on here...)
+	 *
+	 */
 	include('image.class.php');
 	$image = new imageClass();
 
@@ -32,6 +37,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	      ->resize(512,288,'exact')
               ->save('./generated','demo.exact-resize_2',$image->getFileType());
 
+	
+	/*
+	 * *****************************************************************************
+	 * RESTORE A CROPPED SELECTION FROM A DATA SOURCE
+	 ********************************************************************************
+	 If you would like to rebuild the cropped selection; having previously stored (in a database) the cropping points,
+	 you'll have to re-calculate the points as follows to load the selection on top of the original image:
+	
+		$imageSelection = array
+		(
+			'x' => $_POST['jcrop-x'][1],				//bottom left point
+			'y' => $_POST['jcrop-y'][1],				//upper left point
+			'x2' => $_POST['jcrop-x'][1]+$_POST['jcrop-x2'][1], 	//bottom right point
+			'y2' => $_POST['jcrop-y'][1]+$_POST['jcrop-y2'][1]	//upper right point
+		);
+	
+	*/
+	
 	//HTML OUTPUT
 	echo '<h2>Image Manipulation</h2>';
 	echo '<img style="border:1px solid #ccc" src="'.$src1.'"> <br>';
